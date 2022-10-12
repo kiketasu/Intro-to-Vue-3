@@ -21,7 +21,8 @@
             >
           </div>
           <div class="product-info">
-            <h1>{{ product }}</h1>
+            <h1>{{ title }}</h1>
+            <p v-if="onSale">{{ saleMessage }}</p>
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
             <ul>
@@ -34,7 +35,7 @@
               v-for="variant in variants" 
               :key="variant.id" 
               @mouseover="updateImage(variant.image)"
-              class="color-circle"
+              class="color-circle" 
               :style="{ backgroundColor: variant.color }" 
             ></div>
             <button class="button" 
